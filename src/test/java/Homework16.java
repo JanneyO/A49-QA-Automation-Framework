@@ -25,7 +25,8 @@ public class Homework16 extends BaseTest {
         registrationLink.click();
 
         String registrationUrl = "https://qa.koel.app/registration";
-        Assert.assertEquals(driver.getCurrentUrl(),registrationUrl);
+        Assert.assertEquals(driver.getCurrentUrl(), registrationUrl);
 
         driver.quit();
+    }
 }
