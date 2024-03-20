@@ -24,4 +24,37 @@ public class LoginTests extends BaseTest {
         driver.quit();
         //JanneyTest
     }
+     @Test
+     public void loginValidEmailPassword() {
+         //WHEN I open my url
+         navigateToPage();
+         provideEmail();
+         providePassword();
+         clickSubmit();
+         WebElement avatarIcon = driver.findElement(By.cssSelector("img[class='avatar']"));
+         Assert.assertTrue(avatarIcon.isDisplayed());
+
+     }
+
+    public void clickSubmit() {
+        WebElement submit = driver.findElement(By.cssSelector("button[type='submit']"));
+        submit.click();
+    }
+
+    public void providePassword() {
+        WebElement passwordField = driver.findElement(By.cssSelector("input[type='password']"));
+        passwordField.click();
+        passwordField.sendKeys("te$t$tudent");
+    }
+
+    public void provideEmail() {
+        WebElement emailField = driver.findElement(By.cssSelector("input[type='email']"));
+        emailField.click();
+        emailField.sendKeys("demo@class.com");
+    }
+
+    public void navigateToPage() {
+        String url = "https://qa.koel.app/";
+        driver.get(url);
+    }
 }
