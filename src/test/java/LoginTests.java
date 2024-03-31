@@ -24,4 +24,24 @@ public class LoginTests extends BaseTest {
         driver.quit();
         //JanneyTest
     }
+
+
+   @Test
+    public void loginValidEmailPassword(){
+       ChromeOptions options = new ChromeOptions();
+       options.addArguments("--remote-allow-origins=*");
+
+       WebDriver driver = new ChromeDriver(options);
+       driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+
+       navigateToPage();
+       provideEmail("email");
+       providePassword("password");
+       clickSubmit();
+       closeBrowser();
+   }
+
 }
+
+
+
